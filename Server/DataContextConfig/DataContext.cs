@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Server.Entity;
 
 namespace Server.DataContextConfig
 {
@@ -8,5 +9,8 @@ namespace Server.DataContextConfig
         {
             
         }
+
+        public DbSet<Url> Urls { get; set; }
+
     }
 }

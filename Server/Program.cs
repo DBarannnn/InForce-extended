@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Server.DataContextConfig;
+using Server.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +11,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
+builder.Services.AddScoped<IUrlService, UrlService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
