@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Server.Entity
 {
     [Index(nameof(OriginalUrl), IsUnique = true)]
+    [Index(nameof(ShortenedUrl), IsUnique = true)]
     public class Url
     {
         [Key]
