@@ -15,6 +15,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 );
 
 builder.Services.AddScoped<IUrlService, UrlService>();
+builder.Services.AddScoped<UrlGeneratorHelperService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
