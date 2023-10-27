@@ -1,0 +1,33 @@
+.table-section{
+    padding: 20px;
+}
+
+.table-section > h2{
+    font-size: 1.7rem;
+}
+
+.add-url-form{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.url-input, .shorten-btn{
+    height: 2rem;
+    border: none;
+}
+
+.url-input{
+    width: 500px;
+    background-color: rgb(174, 174, 174);
+    border: 0px;
+}
+
+.url-input::placeholder{
+    color: black;
+    font-weight: 700;
+    opacity: 0.4;
+}
+
