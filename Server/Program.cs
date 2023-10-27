@@ -16,6 +16,15 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddScoped<IUrlService, UrlService>();
 builder.Services.AddScoped<UrlGeneratorHelperService>();
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin();
+        builder.AllowAnyMethod();
+        builder.AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
