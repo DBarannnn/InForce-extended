@@ -1,4 +1,5 @@
-﻿using Server.Entity;
+﻿using Microsoft.AspNetCore.Mvc;
+using Server.Entity;
 
 namespace Server.Service
 {
@@ -8,5 +9,7 @@ namespace Server.Service
         public Task<List<Url>> CreateUrl(string url);
 
         public Task<Url> FindById(int id);
+        public Task<List<Url>> DeleteUrl(int id);
+
     }
 }

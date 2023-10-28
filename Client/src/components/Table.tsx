@@ -1,7 +1,7 @@
 import "./Table.css"
-import {Form, Link, redirect, useLoaderData} from "react-router-dom"
+import {Form, Link, redirect, useLoaderData, useRevalidator} from "react-router-dom"
 import axios from "axios"
-import getAllUrls, { submitUrl } from "../util/requests"
+import getAllUrls, { deleteById, submitUrl } from "../util/requests"
 
 interface UrlObject {
     id: number;
@@ -36,6 +36,7 @@ export async function loader({ request }: { request: Request }) {
 }
 
 export default function Table(){
+    const revalidator = useRevalidator()
     const loaderData  = useLoaderData() as LoaderObject
     const urlElements = loaderData.urls.map(e => {
         return(
@@ -46,7 +47,14 @@ export default function Table(){
                 </div>
                 <div className="btn-container">
                     <Link to={`/url/${e.id}`} className="info-btn">Info</Link>
-                    <Link to={`url/delete/${e.id}`} className="delete-btn">Delete</Link>
+                    <button  className="delete-btn" onClick={async () => { 
+                        await deleteById(e.id)
+                        if (revalidator.state === "idle") {
+                            revalidator.revalidate();
+                          }
+                         }}
+                    >Delete</button>
+
                 </div>
                 <hr className="url-separator"/>
             </div>
@@ -54,8 +62,7 @@ export default function Table(){
     })
 
     return(
-        <>
-           
+        <>  
             <section className="table-section">
                 <h2>Add new URL</h2>
                
@@ -65,7 +72,7 @@ export default function Table(){
                 className="add-url-form"
                 >
                     <input type="text" name="longUrl" placeholder="Paste Your Long URL" className="url-input"></input>
-                    <button type="submit" className="shorten-btn">Shorten</button>
+                    <button type="submit" id="shorten-btn">Shorten</button>
                 </Form>
             </section>
 
