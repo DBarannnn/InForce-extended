@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { redirect } from "react-router";
 
+
 const apiPath  = "https://localhost:7154/api/Url"
 
 export default async function getAllUrls(){
@@ -37,4 +38,8 @@ export async function findById(urlId : number){
     catch(ex){
         return redirect(`/url?msg=${ex.response.data.msg}`)
     }
+}
+
+export async function deleteById(urlId : number){
+    await axios.delete(apiPath+`/delete/${urlId}`)
 }

@@ -14,12 +14,13 @@
 }
 
 
-.url-input, .shorten-btn{
+.url-input, #shorten-btn{
     height: 2rem;
+    font-size: 1.4rem;
     border: none;
 }
 
-.shorten-btn:hover{
+#shorten-btn:hover{
     cursor: pointer;
 }
 
@@ -53,12 +54,25 @@
     margin-top: 10px;
 }
 
-.btn-container > a {
+.btn-container > a  {
     width: 75px;
+    border: none;
+    background-color: transparent;
     border-radius: 5px;
     text-align: center;
     font-size: 1.5rem;
 }
+
+.btn-container > button  {
+    width: 75px;
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+
 
 .info-btn:hover{
     background-color: gray;
