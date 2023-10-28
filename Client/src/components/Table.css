@@ -19,6 +19,10 @@
     border: none;
 }
 
+.shorten-btn:hover{
+    cursor: pointer;
+}
+
 .url-input{
     width: 500px;
     background-color: rgb(174, 174, 174);
@@ -31,3 +35,43 @@
     opacity: 0.4;
 }
 
+.error-msg{
+    color: red;
+    text-align: center;
+}
+
+.url-container{
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0px 40px 0px;
+    width: 600px;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn-container > a {
+    width: 75px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.info-btn:hover{
+    background-color: gray;
+    color: greenyellow;
+}
+
+.delete-btn:hover{
+    background-color: red;
+}
+
+.url-separator{
+    height: 2px;
+    width: 100%;
+    border: none;
+    background-color: #73D9CD;
+}

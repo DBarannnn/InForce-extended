@@ -22,25 +22,28 @@ namespace Server.Service
 
         public async Task<List<Url>> createUrl(string url)
         {
-            
-            if(!_urlGeneratorHelperService.validateUrl(url))
+
+            if (!_urlGeneratorHelperService.validateUrl(url))
             {
                 throw new Exception("Invalid url");
             }
+            else if(_dataContext.Urls.Any(e => e.OriginalUrl == url))
+            {
+                throw new Exception("Such url shortener already exists");
+            }
+
             string baseUrl = "http://localhost:5174/";
             string shortenedUrl = await _urlGeneratorHelperService.generateUnique(baseUrl, 7);
-
-           
-                Url createdUrl = new Url()
+            Url createdUrl = new Url()
                 {
                     OriginalUrl = url,
                     ShortenedUrl = shortenedUrl,
                     CreatedAt = DateTime.UtcNow,
                 };
 
-                var result = await _dataContext.Urls.AddAsync(createdUrl);
-                await _dataContext.SaveChangesAsync();
-                return await _dataContext.Urls.ToListAsync();
+            var result = await _dataContext.Urls.AddAsync(createdUrl);
+            await _dataContext.SaveChangesAsync();
+            return await _dataContext.Urls.ToListAsync();
            
          }
 
