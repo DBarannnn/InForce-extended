@@ -17,14 +17,14 @@ namespace Server.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Url>>> getAllUrls()
+        public async Task<ActionResult<List<Url>>> GetAllUrls()
         {
             var result = _urlService.GetAll();
             return Ok(await result);
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Url>>> postUrl([FromBody] string longUrl)
+        public async Task<ActionResult<List<Url>>> PostUrl([FromBody]string longUrl)
         {
             try
             {
