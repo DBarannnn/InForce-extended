@@ -11,5 +11,6 @@ namespace Server.Service
         public Task<Url> FindById(int id);
         public Task<List<Url>> DeleteUrl(int id);
 
+        public Task<string> findByShortenedUrl(string shortUrl);
     }
 }

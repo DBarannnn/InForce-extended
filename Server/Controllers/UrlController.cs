@@ -77,6 +77,25 @@ namespace Server.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("easy")]
+        public async Task<ActionResult<String>> FindOriginalUrl([FromHeader]string shortenedUrl)
+        {
+            try
+            {
+                var originalUrl = await _urlService.findByShortenedUrl(shortenedUrl);
+                return originalUrl;
+            }
+             catch (Exception ex)
+            {
+                var errorResponse = new { msg = ex.Message };
+                return new ObjectResult(errorResponse)
+                {
+                    StatusCode = StatusCodes.Status400BadRequest
+                };
+            }
+        }
+
 
     }
 }

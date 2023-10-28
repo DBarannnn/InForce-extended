@@ -31,7 +31,7 @@ namespace Server.Service
                 throw new Exception("Such url shortener already exists");
             }
 
-            string baseUrl = "http://localhost:5174/easy/";
+            string baseUrl = "http://localhost:5173/easy/";
             string shortenedUrl = await _urlGeneratorHelperService.generateUnique(baseUrl, 7);
             Url createdUrl = new Url()
                 {
@@ -73,6 +73,20 @@ namespace Server.Service
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public async Task<string> findByShortenedUrl(string shortenedUrl)
+        {
+            try
+            {
+                Url matchingUrl = await _dataContext.Urls.FirstAsync(e => e.ShortenedUrl.Equals(shortenedUrl));
+                return matchingUrl.OriginalUrl;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            
         }
 
 
