@@ -29,13 +29,12 @@ export async function submitUrl(longUrl: string | null) {
 
 export async function findById(urlId : number){
     try{
-        const res = await axios.post(apiPath, {
-            "longUrl" : longUrl})
+        const res = await axios.get(apiPath+`/${urlId}`)
         
         const data = await res.data
         return data
     }
     catch(ex){
-        redirect(`/url?msg=${ex.response.data.msg}`)
+        return redirect(`/url?msg=${ex.response.data.msg}`)
     }
 }
