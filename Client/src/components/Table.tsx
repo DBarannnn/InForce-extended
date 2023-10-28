@@ -23,9 +23,9 @@ export async function action({ request }: { request: Request }) {
             throw new Error("Url can't be empty");
         }
         const resp = await submitUrl(longUrl);
-        return redirect("/");
+        return redirect("/url");
     } catch (ex) {
-        return redirect(`/?msg=${ex}`);
+        return redirect(`/url?msg=${ex}`);
     }
 }
 
