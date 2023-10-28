@@ -59,12 +59,23 @@ namespace Server.Controllers
             }
         }
 
-
-
-
-
-
-
+        [HttpDelete]
+        [Route("delete/{urlId}")]
+        public async Task<ActionResult<List<Url>>> DeleteUrl(int urlId)
+        {
+            try
+            {
+                return Accepted(await _urlService.DeleteUrl(urlId));
+            }
+            catch (Exception ex)
+            {
+                var errorResponse = new { msg = ex.Message };
+                return new ObjectResult(errorResponse)
+                {
+                    StatusCode = StatusCodes.Status400BadRequest
+                };
+            }
+        }
 
 
     }

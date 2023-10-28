@@ -59,8 +59,24 @@ namespace Server.Service
             }
         }
 
-
+        
+        public async Task<List<Url>> DeleteUrl(int id)
+        {
+            try
+            {
+                Url requestedUrl = await _dataContext.Urls.FindAsync(id);
+                 _dataContext.Remove(requestedUrl);
+                await _dataContext.SaveChangesAsync();
+                return await _dataContext.Urls.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
+
+
+    }
 }
 
 
