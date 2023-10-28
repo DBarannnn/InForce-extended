@@ -19,23 +19,52 @@ namespace Server.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Url>>> getAllUrls()
         {
-            var result = _urlService.getAll();
+            var result = _urlService.GetAll();
             return Ok(await result);
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Url>>> postUrl(string longUrl)
+        public async Task<ActionResult<List<Url>>> postUrl([FromBody] string longUrl)
         {
             try
             {
-                return Ok(await _urlService.createUrl(longUrl));
+                var response = await _urlService.CreateUrl(longUrl);
+                return Ok(response);
             }
             catch (Exception ex)
             {
-               return BadRequest(ex.Message);
+                var errorResponse = new { msg = ex.Message };
+                return new ObjectResult(errorResponse)
+                {
+                    StatusCode = StatusCodes.Status400BadRequest
+                };
             }
-
         }
+
+        [HttpGet]
+        [Route("{urlId}")]
+        public async Task<ActionResult<Url>> GetUrl(int urlId)
+        {
+            try
+            {
+                return Ok(await _urlService.FindById(urlId));
+            }
+            catch(Exception ex)
+            {
+                var errorResponse = new { msg = ex.Message };
+                return new ObjectResult(errorResponse)
+                {
+                    StatusCode = StatusCodes.Status400BadRequest
+                };
+            }
+        }
+
+
+
+
+
+
+
 
 
     }

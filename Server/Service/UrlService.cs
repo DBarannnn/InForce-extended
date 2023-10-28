@@ -15,14 +15,13 @@ namespace Server.Service
             _urlGeneratorHelperService = urlGeneratorHelperService;
         }
 
-        public async Task<List<Url>> getAll()
+        public async Task<List<Url>> GetAll()
         {
             return await _dataContext.Urls.ToListAsync();
         }
 
-        public async Task<List<Url>> createUrl(string url)
+        public async Task<List<Url>> CreateUrl(string url)
         {
-
             if (!_urlGeneratorHelperService.validateUrl(url))
             {
                 throw new Exception("Invalid url");
@@ -32,7 +31,7 @@ namespace Server.Service
                 throw new Exception("Such url shortener already exists");
             }
 
-            string baseUrl = "http://localhost:5174/";
+            string baseUrl = "http://localhost:5174/easy/";
             string shortenedUrl = await _urlGeneratorHelperService.generateUnique(baseUrl, 7);
             Url createdUrl = new Url()
                 {
@@ -43,14 +42,25 @@ namespace Server.Service
 
             var result = await _dataContext.Urls.AddAsync(createdUrl);
             await _dataContext.SaveChangesAsync();
-            return await _dataContext.Urls.ToListAsync();
-           
+            return await _dataContext.Urls.ToListAsync(); 
          }
 
+        public async Task<Url> FindById(int id)
+        {
+            try
+            {
+                Url requestedUrl = await _dataContext.Urls.FirstAsync(e => e.Id == id);
+                return requestedUrl;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Such URL was not found");
+            }
+        }
 
 
         }
-    }
+}
 
 
 
