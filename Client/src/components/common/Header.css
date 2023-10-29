@@ -2,12 +2,35 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    background-color:cadetblue;
 }
 
 .brand-name{
-    width: 100%;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.nav-option-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.left{
+    margin-right: auto;
+}
+
+.right{
+    margin-left: auto;
+}
+
+.nav-option{
+    font-size: 1.3rem;
+    font-weight: 200;
+    margin-right: 30px;
+    margin-left: 30px;
 }
 

@@ -1,13 +1,13 @@
 import { Form, redirect } from "react-router-dom"
 import "./Login.css"
 import { login, register } from "../util/requests"
+import axios from "axios"
 
 export async function action({request} : {request : Request}){
     const formData = await request.formData()
     const email = formData.get("email") as string
     const password = formData.get("password") as string
 
-    console.log("before req")
     const response = await login(email,password)
     if(response.status == 200){
         console.log("after req")

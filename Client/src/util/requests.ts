@@ -1,6 +1,18 @@
 import axios, { AxiosError } from "axios";
 import { redirect } from "react-router";
 
+// await axios({
+//   method: "GET",
+//   url: "https://example.com",
+//   validateStatus: () => true,
+// })
+
+
+interface User {
+  id: number,
+  email: string,
+  password: string 
+}
 
 const apiUrlPath  = "https://localhost:7154/api/Url"
 
@@ -86,8 +98,26 @@ export async function login(email : string, password : string){
     'Content-Type': 'application/json',
   }
 
-  const response = await axios.post(url, body, {headers, withCredentials: true})
+  const response = await axios.post(url, body, {headers, withCredentials: true, validateStatus: () => true})
   return response
+}
 
+export async function getCurrentUser(){
 
+    const response = await axios.get("https://localhost:7154/api/Auth/user")
+    if(response.status == 200){
+      return response.data
+    }
+    return redirect("/register")
+
+}
+
+export async function isUserAuthorized(){
+  try{
+    const currentUser = await getCurrentUser()
+    if(currentUser) return true
+  }
+  catch(ex){
+    return false
+  }
 }

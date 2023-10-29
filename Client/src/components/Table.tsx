@@ -1,7 +1,7 @@
 import "./Table.css"
+import { useState } from "react";
 import {Form, Link, redirect, useLoaderData, useRevalidator} from "react-router-dom"
-import axios from "axios"
-import getAllUrls, { deleteById, submitUrl } from "../util/requests"
+import getAllUrls, { deleteById, getCurrentUser, isUserAuthorized, submitUrl } from "../util/requests"
 
 interface UrlObject {
     id: number;
@@ -63,6 +63,7 @@ export default function Table(){
 
     return(
         <>  
+
             <section className="table-section">
                 <h2>Add new URL</h2>
                
@@ -80,6 +81,7 @@ export default function Table(){
                 <h2>Listed URLS:</h2>
                 {urlElements}
             </section>
+
 
         </>
     )
