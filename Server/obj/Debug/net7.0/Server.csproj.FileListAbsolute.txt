@@ -74,3 +74,4 @@ C:\Project\Inforce\Server\obj\Debug\net7.0\refint\Server.dll
 C:\Project\Inforce\Server\obj\Debug\net7.0\Server.pdb
 C:\Project\Inforce\Server\obj\Debug\net7.0\Server.genruntimeconfig.cache
 C:\Project\Inforce\Server\obj\Debug\net7.0\ref\Server.dll
+C:\Project\Inforce\Server\bin\Debug\net7.0\BCrypt.Net-Next.dll

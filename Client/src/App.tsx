@@ -1,17 +1,13 @@
 
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements, redirect } from 'react-router-dom'
 import './App.css'
 import Layout from './components/common/Layout'
 import Table, {
   action as tableAction,
   loader as tableLoader
 } from './components/Table'
-import UrlInfo,
-{
-  loader as urlInfoLoader
-}
-from './components/UrlInfo'
-
+import UrlInfo,{ loader as urlInfoLoader} from './components/UrlInfo'
+import {loader as easyLoader} from './components/Easy'
 function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
@@ -25,7 +21,11 @@ function App() {
       <Route 
       path='url/:urlId'
       loader={urlInfoLoader}
-      element={<UrlInfo />}
+      element={<UrlInfo/>}
+      />
+      <Route
+      path='easy/:shortenedUrl'
+      loader={easyLoader}
       />
     </Route>
   ))
