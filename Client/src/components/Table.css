@@ -28,25 +28,36 @@
     justify-content: center;
 }
 
-
 .url-input, #shorten-btn{
     height: 2rem;
     font-size: 1.4rem;
     border: none;
 }
 
+#shorten-btn{
+    background-color: cadetblue;
+    color: white;
+}
+
 #shorten-btn:hover{
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .url-input{
     width: 500px;
-    background-color: rgb(174, 174, 174);
-    border: 0px;
+    background-color: #F2F2F2;
+    border: 2px solid #F2F2F2;
+    outline: none;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.url-input:focus{
+    border: 2px solid cadetblue ;
 }
 
 .url-input::placeholder{
-    color: black;
+    color: #828282;
     font-weight: 700;
     opacity: 0.4;
 }
