@@ -5,7 +5,7 @@ using Server.Service;
 
 namespace Server.Controllers
 {
-    [Route("/api[controller]")]
+    [Route("/api/[controller]")]
     [ApiController]
     public class AuthController : Controller
     {

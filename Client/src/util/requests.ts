@@ -2,19 +2,17 @@ import axios, { AxiosError } from "axios";
 import { redirect } from "react-router";
 
 
-const apiPath  = "https://localhost:7154/api/Url"
+const apiUrlPath  = "https://localhost:7154/api/Url"
 
 export default async function getAllUrls(){
-    const res = await axios.get(apiPath)
+    const res = await axios.get(apiUrlPath)
     const data = await res.data;
     return data
 }
 
-import axios from 'axios';
-
 export async function submitUrl(longUrl: string | null) {
   try {
-    const res = await axios.post(apiPath, longUrl, {
+    const res = await axios.post(apiUrlPath, longUrl, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -57,5 +55,39 @@ export async function findByShortenedUrl(shortenedUrl : string){
     } catch (error) {
       return `http://localhost:5173/Url?msg=No such short url`
     }
+
+}
+
+export async function register(name : string | null, email: string | null, password: string | null){
+  const url = "https://localhost:7154/api/Auth/register"
+  const body = JSON.stringify({
+    name,
+    email,
+    password 
+  })
+
+  const headers = {
+    'accept': '*/*',
+    'Content-Type': 'application/json',
+  };
+
+  await axios.post(url, body,{headers})
+  return redirect("/login")
+}
+
+export async function login(email : string, password : string){
+  const url = "https://localhost:7154/api/Auth/login"
+  const body = JSON.stringify({
+    email,
+    password 
+  })
+  
+  const headers = {
+    'Content-Type': 'application/json',
+  }
+
+  const response = await axios.post(url, body, {headers, withCredentials: true})
+  return response
+
 
 }
