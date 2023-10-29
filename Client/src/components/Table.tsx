@@ -15,18 +15,23 @@ interface LoaderObject {
     msg: string | null;
 }
 
+interface ErrorResponse {
+    msg: string
+}
+
 export async function action({ request }: { request: Request }) {
-    try {
         const formData = await request.formData();
         const longUrl = formData.get("longUrl")?.toString() as string;
-        if (!longUrl) {
-            throw new Error("Url can't be empty");
-        }
         const resp = await submitUrl(longUrl);
-        return redirect("/url");
-    } catch (ex) {
-        return redirect(`/url?msg=${ex}`);
-    }
+
+        if(resp.status == 200){
+            return redirect("/url");
+        }
+        else{
+            const data = resp.data as ErrorResponse
+            return redirect(`/url?msg=${data.msg}`)
+        }
+    
 }
 
 export async function loader({ request }: { request: Request }) {

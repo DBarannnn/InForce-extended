@@ -6,7 +6,12 @@ interface LoaderParams{
 }
 
 export async function loader({request, params} : {request : Request, params : LoaderParams}){
-    const redirectLink = await findByShortenedUrl(params.shortenedUrl)
-    return redirect(redirectLink)
+    const response = await findByShortenedUrl(params.shortenedUrl)
+    const data = response.data
+    
+    if(response.status == 200){
+        return redirect(data)
+    }
+    return redirect(`/Url?msg=${data.msg}`)
 }
 

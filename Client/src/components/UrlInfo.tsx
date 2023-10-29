@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router"
+import { useLoaderData, redirect } from "react-router"
 import { findById } from "../util/requests"
 import "./UrlInfo.css"
 
@@ -14,9 +14,14 @@ interface LoaderObject {
 }
 
 export async function loader({ params }: {params: LoaderParams }) {
-  const requestedUrl = await findById(params.urlId)
+  const response = await findById(params.urlId)
+  const data = response.data 
 
-  return requestedUrl
+  if(response.status == 200){
+    return data
+  }
+
+  return redirect(`/Url?msg=${data.msg}`)
 }
 
 export default function UrlInfo() {
