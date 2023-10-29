@@ -9,4 +9,8 @@ a {
   color: inherit
 }
 
+input{
+  box-sizing: border-box;
+}
+
 
