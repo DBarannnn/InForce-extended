@@ -16,6 +16,9 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddScoped<IUrlService, UrlService>();
 builder.Services.AddScoped<UrlGeneratorHelperService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<JwtService>();
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
