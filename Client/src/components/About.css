@@ -1,0 +1,39 @@
+/* Container styles */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-text {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* List styles */
+.list {
+    list-style: decimal;
+    padding-left: 20px;
+}
+
+.list-item {
+    margin-top: 10px;
+}
+
+.list-item-strong {
+    font-weight: bold;
+}
+
+/* Footer styles */
+.footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.footer-text {
+    font-size: 14px;
+    color: #888;
+}

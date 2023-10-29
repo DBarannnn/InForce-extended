@@ -7,10 +7,15 @@ import UrlInfo,{ loader as urlInfoLoader} from './components/UrlInfo'
 import {loader as easyLoader} from './components/Easy'
 import Register, {action as registerAction} from './components/Register'
 import Login, {action as loginAction} from './components/Login'
+import About from './components/About'
 function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<Layout/>}>
+        <Route 
+          index
+          element={<About />}
+        />
         <Route
         path='url' 
         action={tableAction}
