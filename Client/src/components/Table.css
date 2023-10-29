@@ -56,21 +56,9 @@
     text-align: center;
 }
 
-.url-container{
-    display: flex;
-    flex-direction: column;
-    margin: 40px 0px 40px 0px;
-    width: 600px;
-}
 
-.btn-container{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
 
 .btn-container > a  {
-    width: 75px;
     border: none;
     background-color: transparent;
     border-radius: 5px;
@@ -90,12 +78,13 @@
 
 
 .info-btn:hover{
-    background-color: gray;
+    background-color: #333;
     color: greenyellow;
 }
 
 .delete-btn:hover{
     background-color: red;
+    opacity: 0.8;
 }
 
 .url-separator{
@@ -105,11 +94,67 @@
     background-color: #73D9CD;
 }
 
-.url-text{
-    font-size: 1.4rem;
-    font-weight: 100;
-}
 
 .url:hover{
     text-decoration: underline;
 }
+
+
+/* UrlList.css */
+
+/* Container for each URL entry */
+.url-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* URL text styles */
+  .url-text {
+    font-size: 16px;
+  }
+  
+  /* Long and Short URL styles */
+  .url {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  /* Button container styles */
+  .btn-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Info button styles */
+  .info-btn {
+    text-align: start;
+    background-color:#333;
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  /* Delete button styles */
+  .delete-btn {
+    color: black;
+    border: none;
+    width: 120px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Separator styles */
+  .url-separator {
+    border: 1px solid #ccc;
+    margin-top: 20px;
+  }
+  
