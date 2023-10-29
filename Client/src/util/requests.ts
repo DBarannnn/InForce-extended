@@ -1,20 +1,11 @@
 import axios, { AxiosError } from "axios";
-import { redirect } from "react-router";
-
-// await axios({
-//   method: "GET",
-//   url: "https://example.com",
-//   validateStatus: () => true,
-// })
 
 const axionsInstance = axios.create({
   validateStatus: () => true,
   baseURL: "https://localhost:7154/api"
 }
   )
-
-
-
+  
 interface User {
   id: number,
   email: string,
