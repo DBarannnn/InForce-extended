@@ -1,7 +1,7 @@
 import { Form, redirect } from "react-router-dom"
-import "./Login.css"
-import { login, register } from "../util/requests"
-import axios from "axios"
+import "./LoginRegister.css"
+import { login } from "../util/requests"
+
 
 export async function action({request} : {request : Request}){
     const formData = await request.formData()
@@ -20,14 +20,15 @@ export default function Login(){
     return(
         <div className="form-wrapper">
             <Form  method="post" className="register-form">
-                
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email"></input>
+             <h2 className="form-header">Log in</h2>
 
-                <label htmlFor="password">Password</label>
+                <label htmlFor="email" >Email</label>
+                <input type="email" name="email" ></input>
+
+                <label htmlFor="password" >Password</label>
                 <input type="password" name="password"></input>
 
-                <button>Submit</button>
+                <button>Log in</button>
             </Form>
         </div>
     )

@@ -100,9 +100,7 @@
 }
 
 
-/* UrlList.css */
 
-/* Container for each URL entry */
 .url-container {
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -111,18 +109,15 @@
     background-color: #f9f9f9;
   }
   
-  /* URL text styles */
   .url-text {
     font-size: 16px;
   }
   
-  /* Long and Short URL styles */
   .url {
     color: #007bff;
     text-decoration: none;
   }
   
-  /* Button container styles */
   .btn-container {
     margin-top: 10px;
     display: flex;
@@ -130,7 +125,6 @@
     justify-content: space-between;
   }
   
-  /* Info button styles */
   .info-btn {
     text-align: start;
     background-color:#333;
@@ -143,7 +137,6 @@
     text-decoration: none;
   }
   
-  /* Delete button styles */
   .delete-btn {
     color: black;
     border: none;
@@ -152,7 +145,6 @@
     cursor: pointer;
   }
   
-  /* Separator styles */
   .url-separator {
     border: 1px solid #ccc;
     margin-top: 20px;

@@ -1,5 +1,5 @@
 import { Form } from "react-router-dom"
-import "./Register.css"
+import "./LoginRegister.css"
 import { register } from "../util/requests"
 
 export async function action({request} : {request : Request}){
@@ -28,7 +28,7 @@ export default function Register(){
                 <label htmlFor="password">Password</label>
                 <input type="password" name="password"></input>
 
-                <button>Submit</button>
+                <button>Register</button>
             </Form>
         </div>
     )
