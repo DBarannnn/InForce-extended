@@ -1,10 +1,25 @@
 .table-section{
     padding: 20px;
+    
 }
 
 .table-section > h2{
-    font-size: 1.7rem;
+    font-size: 1.3rem;
 }
+
+.info {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    max-width: 95%;
+    width: 100%;
+    padding: 15px; 
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    color: #333; 
+    line-height: 1.8; 
+    padding-right: 20px;
+  }
+  
 
 .add-url-form{
     display: flex;
@@ -88,4 +103,13 @@
     width: 100%;
     border: none;
     background-color: #73D9CD;
+}
+
+.url-text{
+    font-size: 1.4rem;
+    font-weight: 100;
+}
+
+.url:hover{
+    text-decoration: underline;
 }

@@ -12,7 +12,7 @@ export default function Header(){
         <header>
              <div className="nav-option-container left">
                 <NavLink 
-                to="/about"
+                to="/"
                 className="nav-option"
                 style={({isActive}) => isActive ? activeStyles : null}>
                 About

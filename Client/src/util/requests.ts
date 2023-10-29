@@ -8,6 +8,7 @@ import { redirect } from "react-router";
 // })
 
 
+
 interface User {
   id: number,
   email: string,
@@ -40,7 +41,7 @@ export async function submitUrl(longUrl: string | null) {
 
 export async function findById(urlId : number){
     try{
-        const res = await axios.get(apiPath+`/${urlId}`)    
+        const res = await axios.get(apiUrlPath+`/${urlId}`)    
         const data = await res.data
         return data
     }
@@ -50,7 +51,7 @@ export async function findById(urlId : number){
 }
 
 export async function deleteById(urlId : number){
-    await axios.delete(apiPath+`/delete/${urlId}`)
+    await axios.delete(apiUrlPath+`/delete/${urlId}`)
 }
 
 export async function findByShortenedUrl(shortenedUrl : string){
