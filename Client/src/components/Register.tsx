@@ -1,4 +1,4 @@
-import { Form } from "react-router-dom"
+import { Form, redirect } from "react-router-dom"
 import "./LoginRegister.css"
 import { register } from "../util/requests"
 
@@ -11,6 +11,7 @@ export async function action({request} : {request : Request}){
     if(name && email && password){
         return await register(name, email,password)
     }
+    return redirect("/register?msg=?Invalid Credentials")
 }
 
 export default function Register(){

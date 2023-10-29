@@ -5,13 +5,15 @@ import { login } from "../util/requests"
 
 export async function action({request} : {request : Request}){
     const formData = await request.formData()
+
     const email = formData.get("email") as string
     const password = formData.get("password") as string
 
-    const response = await login(email,password)
-    if(response.status == 200){
-        console.log("after req")
-        return redirect("/Url")
+    if(email && password){
+        const response = await login(email,password)
+        if(response.status == 200){
+            return redirect("/Url")
+        }
     }
     return redirect("/login?msg=Invalid credentials")
 }
