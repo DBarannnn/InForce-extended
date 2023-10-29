@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Server.Entity;
+using Server.Helper;
 using Server.Service;
 
 namespace Server.Controllers
 {
+
+
+
     [Route("api/[controller]")]
     [ApiController]
     public class UrlController : ControllerBase
@@ -33,11 +37,7 @@ namespace Server.Controllers
             }
             catch (Exception ex)
             {
-                var errorResponse = new { msg = ex.Message };
-                return new ObjectResult(errorResponse)
-                {
-                    StatusCode = StatusCodes.Status400BadRequest
-                };
+                return ErrorBuilder.BuildErrorResponse(ex.Message);
             }
         }
 
@@ -51,11 +51,7 @@ namespace Server.Controllers
             }
             catch(Exception ex)
             {
-                var errorResponse = new { msg = ex.Message };
-                return new ObjectResult(errorResponse)
-                {
-                    StatusCode = StatusCodes.Status400BadRequest
-                };
+                return ErrorBuilder.BuildErrorResponse(ex.Message);
             }
         }
 
@@ -69,11 +65,7 @@ namespace Server.Controllers
             }
             catch (Exception ex)
             {
-                var errorResponse = new { msg = ex.Message };
-                return new ObjectResult(errorResponse)
-                {
-                    StatusCode = StatusCodes.Status400BadRequest
-                };
+                return ErrorBuilder.BuildErrorResponse(ex.Message);
             }
         }
 
@@ -88,11 +80,7 @@ namespace Server.Controllers
             }
              catch (Exception ex)
             {
-                var errorResponse = new { msg = ex.Message };
-                return new ObjectResult(errorResponse)
-                {
-                    StatusCode = StatusCodes.Status400BadRequest
-                };
+                return ErrorBuilder.BuildErrorResponse(ex.Message);
             }
         }
 
