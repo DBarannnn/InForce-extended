@@ -12,5 +12,6 @@ namespace Server.Entity
         [JsonIgnore]
         public string Password { get; set; }
 
+        public List<Url>? Urls { get; set; }
     }
 }

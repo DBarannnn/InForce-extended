@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 
 namespace Server.Service
@@ -10,12 +11,19 @@ namespace Server.Service
 
         public string Generate(int id)
         {
-            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secureKey));
-            var credentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256Signature);
-            var header = new JwtHeader(credentials);
+            List<Claim> claims = new List<Claim>
+           {
+               new Claim(ClaimTypes.Role, "User")
+           };
 
-            var payload = new JwtPayload(id.ToString(), null, null, null, DateTime.Today.AddDays(1)); // 1 day
-            var securityToken = new JwtSecurityToken(header, payload);
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secureKey));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var securityToken = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddDays(1),
+                signingCredentials: creds
+                );
 
             return new JwtSecurityTokenHandler().WriteToken(securityToken);
         }

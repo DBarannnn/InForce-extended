@@ -36,24 +36,20 @@ namespace Server.Controllers
         public IActionResult Login(LoginDto dto)
         {
             var user = _userService.GetByEmail(dto.Email);
-
             if (user == null) return BadRequest(new { message = "Invalid Credentials" });
-
             if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.Password))
             {
                 return BadRequest(new { message = "Invalid Credentials" });
             }
-
             var jwt = _jwtService.Generate(user.Id);
-
             Response.Cookies.Append("jwt", jwt, new CookieOptions
             {
                 HttpOnly = true
             });
-
             return Ok(new
             {
-                message = "success"
+                message = "success",
+                token = jwt 
             });
         }
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SYj0mh7eBxl5jWg2N+8q/Z/yr+zEahuXJ4WYkaXfN4ssBQ6A9FrPL402jc7/NsSKNcAVU6or9i9qUkIh16ahPA==",
+  "dgSpecHash": "9M/Vq8/YfKPcBW8lACMflB/ctUhbSKjPKWe2lbyXq4qaB/2nQq98b2fmJDbbnDqmVgC5ZLDWKkYjIQGpVoFFCw==",
   "success": true,
-  "projectFilePath": "C:\\Project\\Inforce\\Server\\Server.csproj",
+  "projectFilePath": "C:\\Project\\Inforce Extended\\Server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dimab\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

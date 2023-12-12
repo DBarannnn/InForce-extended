@@ -13,9 +13,9 @@ namespace Server.Entity
         public string OriginalUrl { get; set; }
         public string ShortenedUrl { get; set; }
 
-        
         public DateTime CreatedAt { get; set; }
-        
-        //Add user Owner
+
+        public User Owner { get; set; }
+
     }
 }
